@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #64ffda;
+  --secondary: #00b8ff;
+  --text: #e6f1ff;
+  --background: #0a192f;
+  --surface: #112240;
+  --accent: #233554;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-3xl font-bold mb-8 text-primary font-mono relative inline-block;
+  }
+
+  .section-heading::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-1/2 h-1 bg-primary;
+  }
+
+  .nav-link {
+    @apply text-text hover:text-primary transition-colors duration-300 font-mono text-sm relative;
+  }
+  
+  .nav-link {
+    cursor: pointer;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .button {
+    @apply bg-transparent border-2 border-primary text-primary font-mono py-2 px-6 rounded-md hover:bg-primary hover:text-background transition-all duration-300 inline-block;
+  }
+
+  .card {
+    @apply bg-surface rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105;
+  }
+
+  .skill-item {
+    @apply bg-accent text-text rounded-full px-3 py-1 text-sm font-mono;
+  }
+
+  .tooltip-adaptive {
+    --tooltip-offset: 5px;
+    /* Add the rest of your tooltip styles here */
+  }
+  /* Add any other custom component styles here */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Improved contrast */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-white;
+}
+
+p, li {
+  @apply text-text;
+}
+
+/* Alignment */
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+section {
+  @apply py-20;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* You can add any other custom styles outside of @layer if needed */
+
+.tooltip-text {
+  @apply absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 whitespace-normal break-words;
+  bottom: 100%;
+  margin-bottom: 5px;
+  max-width: 200px;
+  width: max-content;
+}
+
+.project-card {
+  position: relative;
+}
+
+.tooltip-overlay {
+  transition: opacity 0.3s ease;
+}
+
+.tooltip-overlay:not(.hidden) {
+  display: flex;
+}
+
+.link-hover {
+  position: relative;
+  z-index: 10;
+}

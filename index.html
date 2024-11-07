@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name - Software Developer Portfolio</title>
+    <meta name="description" content="Professional portfolio of [Your Name], showcasing skills, projects, and experience as a software developer." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Add the following script just before the closing body tag -->
+    <script>
+      window.handleLinkHover = function(description) {
+        window.dispatchEvent(new CustomEvent('linkHover', { detail: description }));
+      }
+      window.handleLinkLeave = function() {
+        window.dispatchEvent(new CustomEvent('linkLeave'));
+      }
+    </script>
+  </body>
+</html>
